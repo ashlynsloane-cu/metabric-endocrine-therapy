@@ -1,0 +1,17 @@
+                 Generalized Linear Model Regression Results
+==============================================================================
+Dep. Variable:        hormone_therapy   No. Observations:                 1204
+Model:                            GLM   Df Residuals:                     1202
+Model Family:                Binomial   Df Model:                            1
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -669.73
+Date:                Fri, 16 Oct 2026   Deviance:                       1339.5
+Time:                        13:39:23   Pearson chi2:                 1.20e+03
+No. Iterations:                     4   Pseudo R-squ. (CS):            0.03963
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -0.1398      0.177     -0.792      0.428      -0.486       0.206
+older          1.3441      0.191      7.045      0.000       0.970       1.718
+==============================================================================

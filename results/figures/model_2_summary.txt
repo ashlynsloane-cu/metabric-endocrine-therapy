@@ -1,0 +1,24 @@
+                 Generalized Linear Model Regression Results
+==============================================================================
+Dep. Variable:        hormone_therapy   No. Observations:                 1204
+Model:                            GLM   Df Residuals:                     1195
+Model Family:                Binomial   Df Model:                            8
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -656.35
+Date:                Fri, 16 Oct 2026   Deviance:                       1312.7
+Time:                        13:39:23   Pearson chi2:                 1.20e+03
+No. Iterations:                     4   Pseudo R-squ. (CS):            0.06073
+Covariance Type:            nonrobust
+===============================================================================================
+                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------
+Intercept                      -1.3142      0.489     -2.688      0.007      -2.273      -0.356
+C(pr)[T.PR−]                    0.2545      0.153      1.665      0.096      -0.045       0.554
+C(pam50_all)[T.Her2]            0.5927      0.507      1.168      0.243      -0.402       1.587
+C(pam50_all)[T.LumA]            1.0512      0.466      2.255      0.024       0.138       1.965
+C(pam50_all)[T.LumB]            1.4972      0.471      3.179      0.001       0.574       2.420
+C(pam50_all)[T.Normal]          1.0620      0.512      2.076      0.038       0.059       2.065
+C(pam50_all)[T.Unknown]         0.6578      0.979      0.672      0.502      -1.262       2.577
+C(pam50_all)[T.claudin-low]     1.7113      0.571      2.998      0.003       0.592       2.830
+older                           1.2672      0.197      6.449      0.000       0.882       1.652
+===============================================================================================

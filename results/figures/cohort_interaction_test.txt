@@ -1,0 +1,5 @@
+Likelihood-ratio test: age group x cohort
+eligible_n=1204
+LR=14.723434
+df=4
+p=0.0053105848
