@@ -224,8 +224,13 @@ def bootstrap_gap_changes(mdf, n_boot=40, seed=0):
 
 
 def run(csv_path, output_dir, n_boot=40, seed=0):
-    out = Path(output_dir)
-    out.mkdir(parents=True, exist_ok=True)
+    figures_dir = Path(output_dir)
+    figures_dir.mkdir(parents=True, exist_ok=True)
+
+    tables_dir = figures_dir.parent / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+
+    out = tables_dir
     data = pd.read_csv(csv_path, low_memory=False)
     needed = ['er_status', 'age_at_diagnosis', OUTCOME, 'tumor_stage',
               'pr_status', 'pam50_+_claudin-low_subtype', 'cohort',
@@ -278,7 +283,7 @@ def run(csv_path, output_dir, n_boot=40, seed=0):
         ha='center', fontsize=9, color='#555555'
     )
     fig.tight_layout(rect=[0, .15, 1, .94])
-    fig.savefig(out/'figure1_treatment_and_stage.png', dpi=210, bbox_inches='tight')
+    fig.savefig(figures_dir / 'figure1_treatment_and_stage.png', dpi=210, bbox_inches='tight')
     plt.close(fig)
     overall.to_csv(out/'overall_treatment_rates.csv', index=False)
     stage.to_csv(out/'stage_treatment_rates.csv', index=False)
@@ -322,7 +327,7 @@ def run(csv_path, output_dir, n_boot=40, seed=0):
         fontsize=8.5, ha='center', color='#555555'
     )
     fig.tight_layout(rect=[0, .13, 1, .91], w_pad=3)
-    fig.savefig(out/'figure2_cohort_heterogeneity.png', dpi=210, bbox_inches='tight')
+    fig.savefig(figures_dir / 'figure2_cohort_heterogeneity.png', dpi=210, bbox_inches='tight')
     plt.close(fig)
 
     # Figure 3 and sensitivity analysis
@@ -407,7 +412,7 @@ def run(csv_path, output_dir, n_boot=40, seed=0):
              'Age groups proxy menopause; associations are not causal.',
              ha='center', fontsize=8.7, color='#555555')
     fig.tight_layout(rect=[0, .09, 1, .93], w_pad=4)
-    fig.savefig(out/'figure3_sequential_adjustment.png', dpi=210, bbox_inches='tight')
+    fig.savefig(figures_dir / 'figure3_sequential_adjustment.png', dpi=210, bbox_inches='tight')
     plt.close(fig)
 
     print(f'Eligible ER+ cohort n={len(df)}; regression sample n={len(mdf)}')
@@ -417,7 +422,8 @@ def run(csv_path, output_dir, n_boot=40, seed=0):
         'reduction_boot_ci_high'
     ]
     print('\nSequential models:\n', results[cols].to_string(index=False))
-    print(f'\nFigures and tables: {out.resolve()}')
+    print(f'\nFigures: {figures_dir.resolve()}')
+    print(f'Tables: {tables_dir.resolve()}')
 
 
 if __name__ == '__main__':

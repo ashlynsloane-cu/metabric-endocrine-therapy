@@ -53,7 +53,7 @@ python -m pip install -r requirements.txt
 python src/analyze.py --input data/METABRIC_RNA_Mutation.csv --output results/figures --bootstrap 40 --seed 0
 ```
 
-Or, on macOS, run `bash run_on_mac.sh`. For a more stable bootstrap interval on a sufficiently capable computer, replace `--bootstrap 40` with `--bootstrap 1000`. Results are saved to `results/figures/`, including the three PNGs, `cohort_absolute_gaps.csv`, `cohort_interaction_test.txt`, `sequential_model_results.csv`, and five model summaries. The same seed and library versions help reproduce results. Numerical tolerance and package versions may still affect estimates slightly.
+Or, on macOS, run `bash run_on_mac.sh`. For a more stable bootstrap interval on a sufficiently capable computer, replace `--bootstrap 40` with `--bootstrap 1000`. The three PNG figures are saved to `results/figures/`. Supporting CSV tables and model summary TXT files are saved to `results/tables/`. The same seed and library versions help reproduce results. Numerical tolerance and package versions may still affect estimates slightly.
 
 ### Software engineering and repository practices
 
@@ -66,7 +66,7 @@ After checking your files locally, create a new personal GitHub repository and r
 ```bash
 git init
 git branch -M main
-git add README.md requirements.txt .gitignore run_on_mac.sh src data/README.md results/figures/*.png results/figures/*.csv results/figures/*.txt
+git add README.md requirements.txt .gitignore run_on_mac.sh src data/README.md results/figures/*.png results/tables/*.csv results/tables/*.txt
 git status
 git commit -m "Add reproducible METABRIC endocrine therapy analysis"
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_NEW_REPOSITORY.git
